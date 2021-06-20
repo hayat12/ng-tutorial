@@ -1,0 +1,85 @@
+<h3>Contacts</h3>
+<hr>
+<div class="card" [formGroup]="form">
+    <div class="card-header">
+        <label>User Contacts</label>
+    </div>
+    <div class="card-body">
+        <h5>User Info</h5>
+        <hr>
+        <div class="row">
+            <div class="col-md-2">Fist Name</div>
+            <div class="col-md-4">
+                <input formControlName="fName" type="text" class="form-control">
+            </div>
+
+            <div class="col-md-2">Last Name</div>
+            <div class="col-md-4">
+                <input formControlName="lName" type="text" class="form-control">
+            </div>
+        </div>
+        <h5>Address</h5>
+        <hr>
+
+        <ng-container formGroupName="addresses">
+            <div class="row">
+                <div class="col-md-2">Address 1</div>
+                <div class="col-md-4">
+                    <input formControlName="address1" type="text" class="form-control">
+                </div>
+    
+                <div class="col-md-2">Address 2</div>
+                <div class="col-md-4">
+                    <input formControlName="address2" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-2">State</div>
+                <div class="col-md-4">
+                    <input formControlName="state" type="text" class="form-control">
+                </div>
+    
+                <div class="col-md-2">Country</div>
+                <div class="col-md-4">
+                    <input formControlName="country" type="text" class="form-control">
+                </div>
+            </div>
+        </ng-container>
+        <h5>Contacts</h5>
+        <button class="btn btn-outline-primary" (click)="addNewContacts()">Add New Contacts</button>
+        <hr>
+        <ng-container formArrayName="contacts" *ngFor="let o of contacts.controls; let i = index">
+
+            <b>Contact {{i+1}}</b> <button class="btn btn-outline-danger mx-3 mt-3" (click)="removeContact(i)">&times;</button>
+            <hr>
+
+            <div class="row mt-2" [formGroupName]="i">
+                <div class="col-md-2">Phone No</div>
+                <div class="col-md-4">
+                    <input formControlName="phone" type="text" class="form-control">
+                </div>
+    
+                <div class="col-md-2">Email</div>
+                <div class="col-md-4">
+                    <input formControlName="email" type="text" class="form-control">
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="card-footer text-center">
+        <button (click)="onSave()" class="btn btn-primary">Save</button>
+    </div>
+</div>
+
+<div class="card mt-2">
+    <div class="card-header">
+        Result 
+    </div>
+    <div class="card-body">
+        <code>
+            <pre>
+                {{result |json}}
+            </pre>
+        </code>
+    </div>
+</div>

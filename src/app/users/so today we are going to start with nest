@@ -1,0 +1,24 @@
+so today we are going to start with nested formgroup and form array in angular 10
+im going to create new module users & create a form for user info this format 
+
+{
+    name: null,
+    lname: null,
+    address: {
+        address 1: null,
+        address 2: null,
+        state: null,
+        country: null
+    },
+    contacts: [
+        {
+            phoneNo: null,
+            email: null
+        },
+        {
+            phoneNo: null,
+            email: null
+        }
+    ]
+}
+so let create the html and design first.
