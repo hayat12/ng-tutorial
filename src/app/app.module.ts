@@ -13,11 +13,6 @@ import { ROOT_REDUCERS } from './reducers';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { HeaderComponent } from './shared/layout/header/header.component';
 
-
-
-
-
-
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({ keys: ['layout'], rehydrate: true })(reducer);
 }

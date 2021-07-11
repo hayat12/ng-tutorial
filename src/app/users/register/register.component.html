@@ -1,0 +1,53 @@
+
+<h5>Register</h5>
+<hr>
+<section>
+    <div class="card" [formGroup]="form">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                    Full Name <span class="text-danger">*</span>
+                </div>
+                <div class="col-md-4">
+                    <input formControlName="fname" type="text" placeholder="Full Name" name="" id="" class="form-control">
+                    <span *ngIf="form.get('fname').invalid && form.get('fname').touched" class="text-danger">
+                        Full name is required
+                    </span>
+                </div>
+                <div class="col-md 2 mt-2 mt-md-0">
+                    Age <span class="text-danger">*</span>
+                </div>
+                <div class="col-md-4 ">
+                    <input formControlName="age" type="number" placeholder="Age" name="" id="" class="form-control">
+                    <span *ngIf="form.get('age').invalid && form.get('age').touched" class="text-danger">
+                        Age name is required and name should be more 18 years old.
+                    </span>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-2">
+                    Email <span class="text-danger">*</span>
+                </div>
+                <div class="col-md-4 mt-2 mt-md-0">
+                    <input formControlName="email" type="text" placeholder="Email" name="" id="" class="form-control">
+                    <span *ngIf="form.get('email').invalid && form.get('email').touched" class="text-danger">
+                        Email is required
+                    </span>
+                </div>
+                <div class="col-md-2 mt-2 mt-md-0">
+                    Phone No <span class="text-danger">*</span>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" formControlName="phone" placeholder="Phone" name="" id="" class="form-control">
+                    <span *ngIf="form.get('phone').invalid && form.get('phone').touched" class="text-danger">
+                        Phone No is required
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-primary" (click)="onSave()">Save</button>
+        </div>
+    </div>
+</section>
